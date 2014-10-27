@@ -7,7 +7,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.4');
-  api.use('peerlibrary:blocking', 'server');
+  api.use('peerlibrary:blocking@0.4.2', 'server');
 
   api.addFiles('gb96:zlib.js');
 
