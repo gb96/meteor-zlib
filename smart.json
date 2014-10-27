@@ -1,0 +1,11 @@
+{
+  "name": "zlib",
+  "description": "zlib compression library",
+  "homepage": "https://github.com/gb96/meteor-zlib",
+  "author": "Greg Bowering",
+  "version": "0.1.0",
+  "git": "https://github.com/gb96/meteor-zlib.git",
+  "packages": {
+    "blocking": {}
+  }
+}
