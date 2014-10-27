@@ -36,7 +36,7 @@ Inflate(compressedBuffer, function(err, decompressedResult) { ... });
 
 Calling Sync Methods
 ---------------------
-These methods are blocking, implemented via [Meteor.wrapAsync()](http://docs.meteor.com/#meteor_wrapasync).
+These methods are blocking, implemented via [peerlibrary:blocking](https://atmospherejs.com/peerlibrary/blocking).
 
 What happens in the event of an error is not well documented. Possibly a null value is returned.
 
