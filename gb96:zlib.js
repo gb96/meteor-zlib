@@ -1,15 +1,26 @@
-var zlib = require('zlib');
-var originalDefineMethods = zlib.defineMethods;
+// FIXME: want to use internal zlib, not NPM one.
+//var zlib = Npm.require('zlib');
+//var originalDefineMethods = zlib.defineMethods;
+
+//zlib = Npm.require('zlib');
+
+//var Zlib = Npm.require('zlib').exec;
+
+Deflate = Npm.require('zlib').Deflate;
+Inflate = Npm.require('zlib').Inflate;
+Gzip = Npm.require('zlib').Gzip;
+Gunzip = Npm.require('zlib').Gunzip;
+DeflateRaw = Npm.require('zlib').DeflateRaw;
+InflateRaw = Npm.require('zlib').InflateRaw;
+Zip = Npm.require('zlib').Zip;
+Unzip = Npm.require('zlib').Unzip;
 
 // wrap async methods:
-zlib.defineMethods = function defineMethods(z) {
-    originalDefineMethods(z);
-
-    var methodNames = ['deflate', 'deflateRaw', 'gzip', 'gunzip', 'inflate', 'inflateRaw'];
-    methodNames.map( function (methodName) {
-        var methodNameSync = methodName + 'Sync';
-        if (!z.prototype[methodName]) return;
-        if (z.prototype[methodNameSync]) return;
-        z.prototype[methodNameSync] = Meteor.wrapAsync(z.prototype[methodName]);
-    });
-};
+DeflateSync = Meteor.wrapAsync(Deflate);
+InflateSync = Meteor.wrapAsync(Inflate);
+GzipSync = Meteor.wrapAsync(Gzip);
+GunzipSync = Meteor.wrapAsync(Gunzip);
+DeflateRawSync = Meteor.wrapAsync(DeflateRaw);
+InflateRawSync = Meteor.wrapAsync(InflateRaw);
+ZipSync = Meteor.wrapAsync(Zip);
+UnzipSync = Meteor.wrapAsync(Unzip);
