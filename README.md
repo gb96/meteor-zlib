@@ -44,5 +44,5 @@ What happens in the event of an error is not well documented. Possibly a null va
 // Compress a buffer:
 var compressedResult = DeflateSync(uncompressedBuffer);
 // Decompress a buffer:
-var decompressedResult = Inflate(compressedBuffer);
+var decompressedResult = InflateSync(compressedBuffer);
 ```
