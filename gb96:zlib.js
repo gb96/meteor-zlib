@@ -1,11 +1,4 @@
-// FIXME: want to use internal zlib, not NPM one.
-//var zlib = Npm.require('zlib');
-//var originalDefineMethods = zlib.defineMethods;
-
-//zlib = Npm.require('zlib');
-
-//var Zlib = Npm.require('zlib').exec;
-
+// Export some async convenience methods from zlib:
 Deflate = Npm.require('zlib').Deflate;
 Inflate = Npm.require('zlib').Inflate;
 Gzip = Npm.require('zlib').Gzip;
@@ -15,7 +8,7 @@ InflateRaw = Npm.require('zlib').InflateRaw;
 Zip = Npm.require('zlib').Zip;
 Unzip = Npm.require('zlib').Unzip;
 
-// wrap async methods:
+// Export wrapped async methods:
 DeflateSync = Meteor.wrapAsync(Deflate);
 InflateSync = Meteor.wrapAsync(Inflate);
 GzipSync = Meteor.wrapAsync(Gzip);

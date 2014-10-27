@@ -10,6 +10,7 @@ Package.onUse(function(api) {
 
   api.addFiles('gb96:zlib.js');
 
+  // Export async convenience methods from zlib:
   api.export('Deflate', 'server');
   api.export('Inflate', 'server');
   api.export('Gzip', 'server');
@@ -19,6 +20,7 @@ Package.onUse(function(api) {
   api.export('Zip', 'server');
   api.export('Unzip', 'server');
 
+  // Export wrapped (blocking) convenience methods:
   api.export('DeflateSync', 'server');
   api.export('InflateSync', 'server');
   api.export('GzipSync', 'server');
@@ -29,6 +31,7 @@ Package.onUse(function(api) {
   api.export('UnzipSync', 'server');
 });
 
+// Unit tests:
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('gb96:zlib', 'server');
