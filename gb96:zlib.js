@@ -7,7 +7,6 @@
  *
  * @author Greg Bowering <gerg.bowering@gmail.com>
  */
-
 var zlib = Npm.require('zlib');
 
 // Export some async convenience methods from zlib:

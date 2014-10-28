@@ -4,7 +4,7 @@
 Package.describe({
   name: 'gb96:zlib',
   summary: 'zlib compression library wrapped for meteor. Includes blocking versions of async methods.',
-  version: '0.2.1',
+  version: '0.2.2',
   git: 'https://github.com/gb96/meteor-zlib.git'
 });
 
@@ -16,7 +16,7 @@ Package.onUse(function(api) {
   // syncrhonous zlib convenience methods.
   api.use('peerlibrary:blocking@0.4.2', 'server');
 
-  api.addFiles('gb96:zlib.js');
+  api.addFiles('gb96:zlib.js', 'server');
 
   // Export async convenience methods from zlib:
   api.export('deflate', 'server');
