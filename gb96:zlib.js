@@ -1,29 +1,30 @@
+/**
+ * Copyright Greg Bowering <gerg.bowering@gmail.com> 2014 All Rights Reserved
+ *
+ * This simple Meteor library wrapper package was inspired by other similar
+ * packages, including "AWS SDK smart package" by Peerlibrary:
+ * https://github.com/peerlibrary/meteor-aws-sdk/tree/meteor0.9.0
+ *
+ * @author Greg Bowering <gerg.bowering@gmail.com>
+ */
+
 var zlib = Npm.require('zlib');
+
 // Export some async convenience methods from zlib:
-Deflate = zlib.Deflate;
-Inflate = zlib.Inflate;
-Gzip = zlib.Gzip;
-Gunzip = zlib.Gunzip;
-DeflateRaw = zlib.DeflateRaw;
-InflateRaw = zlib.InflateRaw;
-Zip = zlib.Zip;
-Unzip = zlib.Unzip;
+deflate = zlib.deflate;
+inflate = zlib.inflate;
+gzip = zlib.gzip;
+gunzip = zlib.gunzip;
+deflateRaw = zlib.deflateRaw;
+inflateRaw = zlib.inflateRaw;
+unzip = zlib.unzip;
 
-// Export wrapped async methods:
-DeflateSync = blocking(zlib, Deflate);
-InflateSync = blocking(zlib, Inflate);
-GzipSync = blocking(zlib, Gzip);
-GunzipSync = blocking(zlib, Gunzip);
-DeflateRawSync = blocking(zlib, DeflateRaw);
-InflateRawSync = blocking(zlib, InflateRaw);
-ZipSync = blocking(zlib, Zip);
-UnzipSync = blocking(zlib, Unzip);
-
-//DeflateSync = Meteor.wrapAsync(Deflate);
-//InflateSync = Meteor.wrapAsync(Inflate);
-//GzipSync = Meteor.wrapAsync(Gzip);
-//GunzipSync = Meteor.wrapAsync(Gunzip);
-//DeflateRawSync = Meteor.wrapAsync(DeflateRaw);
-//InflateRawSync = Meteor.wrapAsync(InflateRaw);
-//ZipSync = Meteor.wrapAsync(Zip);
-//UnzipSync = Meteor.wrapAsync(Unzip);
+// Export wrapped async methods.
+// XXX note zlib *Sync methods planned for inclusion in nodejs v0.11 (currently unstable)
+deflateSync = blocking(zlib.deflate);
+inflateSync = blocking(zlib.inflate);
+gzipSync = blocking(zlib.gzip);
+gunzipSync = blocking(zlib.gunzip);
+deflateRawSync = blocking(zlib.deflateRaw);
+inflateRawSync = blocking(zlib.inflateRaw);
+unzipSync = blocking(zlib.unzip);

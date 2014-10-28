@@ -1,35 +1,40 @@
+/**
+ * Copyright Greg Bowering <gerg.bowering@gmail.com> 2014 All Rights Reserved
+ */
 Package.describe({
   name: 'gb96:zlib',
   summary: 'zlib compression library wrapped for meteor. Includes blocking versions of async methods.',
-  version: '0.1.1',
+  version: '0.2.0',
   git: 'https://github.com/gb96/meteor-zlib.git'
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.4');
+
+  // peerlibrary:blocking used to create blocking versions of zlib aynchronous methods.
+  // can possibly be removed when nodejs v.0.11 is stable since it will include
+  // syncrhonous zlib convenience methods.
   api.use('peerlibrary:blocking@0.4.2', 'server');
 
   api.addFiles('gb96:zlib.js');
 
   // Export async convenience methods from zlib:
-  api.export('Deflate', 'server');
-  api.export('Inflate', 'server');
-  api.export('Gzip', 'server');
-  api.export('Gunzip', 'server');
-  api.export('DeflateRaw', 'server');
-  api.export('InflateRaw', 'server');
-  api.export('Zip', 'server');
-  api.export('Unzip', 'server');
+  api.export('deflate', 'server');
+  api.export('inflate', 'server');
+  api.export('gzip', 'server');
+  api.export('gunzip', 'server');
+  api.export('deflateRaw', 'server');
+  api.export('inflateRaw', 'server');
+  api.export('unzip', 'server');
 
   // Export wrapped (blocking) convenience methods:
-  api.export('DeflateSync', 'server');
-  api.export('InflateSync', 'server');
-  api.export('GzipSync', 'server');
-  api.export('GunzipSync', 'server');
-  api.export('DeflateRawSync', 'server');
-  api.export('InflateRawSync', 'server');
-  api.export('ZipSync', 'server');
-  api.export('UnzipSync', 'server');
+  api.export('deflateSync', 'server');
+  api.export('inflateSync', 'server');
+  api.export('gzipSync', 'server');
+  api.export('gunzipSync', 'server');
+  api.export('deflateRawSync', 'server');
+  api.export('inflateRawSync', 'server');
+  api.export('unzipSync', 'server');
 });
 
 // Unit tests:
